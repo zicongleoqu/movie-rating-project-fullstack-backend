@@ -1,7 +1,9 @@
 package dev.leo.movies.service;
 import dev.leo.movies.model.Movie;
 import dev.leo.movies.model.Review;
+import dev.leo.movies.repository.MovieRepository;
 import dev.leo.movies.repository.ReviewRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -17,6 +19,9 @@ public class ReviewService {
     private ReviewRepository repository;
 
     @Autowired
+    private MovieRepository movieRepository;
+
+    @Autowired
     private MongoTemplate mongoTemplate;
 
     public Review createReview(String reviewBody, String imdbId) {
@@ -28,5 +33,13 @@ public class ReviewService {
                 .first();
 
         return review;
+    }
+
+    public Optional<Review> verifyReview(ObjectId id) {
+        return repository.findById(id);
+    }
+
+    public void deleteReview(Review review, String imdbId) {
+        repository.delete(review);
     }
 }

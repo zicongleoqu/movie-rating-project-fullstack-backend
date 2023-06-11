@@ -14,10 +14,16 @@ public class MovieService {
     @Autowired
     private MovieRepository repository;
 
+    public Movie createMovie(Movie movie) {
+        return repository.save(new Movie(movie.getImdbId(), movie.getTitle(), movie.getReleaseDate(),
+                movie.getTrailerLink(), movie.getPoster(), movie.getBackdrops(), movie.getGenres(), movie.getReviews()));
+    }
+
     public List<Movie> findAllMovies() {
         return repository.findAll();
     }
-    public Optional<Movie> findMovieByImdbId(String imdbId) {
-        return repository.findMovieByImdbId(imdbId);
+
+    public Optional<Movie> findByImdbId(String imdbId) {
+        return repository.findByImdbId(imdbId);
     }
 }

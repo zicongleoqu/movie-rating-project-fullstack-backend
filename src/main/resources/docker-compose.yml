@@ -1,0 +1,14 @@
+version: "3"
+services:
+  movie-rating-mongodb:
+    image: mongo:latest
+    container_name: "movie-rating-mongodb"
+    ports:
+      - 27017:27017
+  movie-rating-backend-docker-image:
+    image: movie-rating-backend-docker-image:1.0
+    container_name: movie-rating-backend-docker-image
+    ports:
+      - 8080:8080
+    links:
+      - movie-rating-mongodb

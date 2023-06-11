@@ -7,4 +7,4 @@ The Spring Boot and MongoDB are both dockerized and can be found on DockerHub he
 
 There are two images: mongo and movie-rating-backend-docker-image. 
 
-In addition, I used Docker Compose to link up these two images to simplify the process of running containers from the image.
+In addition, I used Docker Compose to link up these two images to simplify the process of running containers from the image. Simply go to the resource folder where the Dockercompose file is located and run this command: "docker compose up".

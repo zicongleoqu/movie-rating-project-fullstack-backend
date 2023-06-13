@@ -5,9 +5,9 @@ services:
     container_name: "movie-rating-mongodb"
     ports:
       - 27017:27017
-  movie-rating-backend-docker-image:
-    image: movie-rating-backend-docker-image:1.0
-    container_name: movie-rating-backend-docker-image
+  movie-rating-project-backend:
+    image: movie-rating-project-backend:latest
+    container_name: movie-rating-project-backend
     ports:
       - 8080:8080
     links:

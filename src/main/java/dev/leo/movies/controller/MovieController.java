@@ -1,6 +1,7 @@
 package dev.leo.movies.controller;
 
 import dev.leo.movies.model.Movie;
+import dev.leo.movies.model.Review;
 import dev.leo.movies.repository.MovieRepository;
 import dev.leo.movies.service.MovieService;
 import org.bson.types.ObjectId;
@@ -11,6 +12,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -19,6 +21,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1/movies")
 public class MovieController {
     MovieRepository movieRepository;
+
 
     @Autowired
     public MovieController(MovieRepository movieRepository) {
@@ -36,6 +39,15 @@ public class MovieController {
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId){
         return new ResponseEntity<Optional<Movie>>(service.findByImdbId(imdbId), HttpStatus.OK);
+    }
+
+    @GetMapping(path="/average")
+    public Map<String, Double> getAverage(@PathVariable(value = "movieId") ObjectId movieId) {
+        verifyMovie(movieId);
+        return Map.of("average", movieRepository.findById(movieId).get().getReviews().stream()
+                .mapToInt(Review::getScore).average()
+                .orElseThrow(()->
+                        new NoSuchElementException("Movie has no ratings")));
     }
 
     @PostMapping

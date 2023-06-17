@@ -44,7 +44,7 @@ public class MovieController {
     @GetMapping(path="/average")
     public Map<String, Double> getAverage(@PathVariable(value = "movieId") ObjectId movieId) {
         verifyMovie(movieId);
-        return Map.of("average", movieRepository.findById(movieId).get().getReviews().stream()
+        return Map.of("Movie average", movieRepository.findById(movieId).get().getReviews().stream()
                 .mapToInt(Review::getScore).average()
                 .orElseThrow(()->
                         new NoSuchElementException("Movie has no ratings")));

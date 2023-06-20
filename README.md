@@ -20,5 +20,5 @@ In addition, I used Docker Compose to link up these two images to simplify the p
 I also deployed this using Kubernetes Minikube from my local machine.
 
 Deployed on AWS EC2. Accessible at http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/
-Try this URL to see the list of movies: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies
-Try this URL to get a specific movie: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies/tt3915174
+- Try this URL to see the list of movies: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies
+- Try this URL to get a specific movie: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies/tt3915174

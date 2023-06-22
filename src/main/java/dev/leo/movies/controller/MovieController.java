@@ -41,7 +41,7 @@ public class MovieController {
         return new ResponseEntity<Optional<Movie>>(service.findByImdbId(imdbId), HttpStatus.OK);
     }
 
-    @GetMapping(path="/average")
+    @GetMapping(path="/{movieId}/average")
     public Map<String, Double> getAverage(@PathVariable(value = "movieId") ObjectId movieId) {
         verifyMovie(movieId);
         return Map.of("Movie average", movieRepository.findById(movieId).get().getReviews().stream()

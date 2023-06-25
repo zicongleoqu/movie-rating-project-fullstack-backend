@@ -27,4 +27,4 @@ Deployed on local machine using Kubernetes Minikube.
 Deployed on an AWS EC2 instance. Accessible at http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/
 - Try this URL to see the list of movies: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies
 - Try this URL to get a specific movie: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies/tt3915174
-- Try this URL to get the average rating of a specific rating: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies/64863c77cdf6f1dcceef0faf/average
+- Try this URL to get the average rating of a specific movie: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies/64863c77cdf6f1dcceef0faf/average

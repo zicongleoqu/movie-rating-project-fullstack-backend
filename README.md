@@ -10,7 +10,8 @@ This is the backend of the movie rating project. The RESTful API endpoints enabl
 - Create a new review
 - Delete a review by Id
 
-This is a Spring Boot microservice that uses MongoDB as NoSQL database.
+This is a Spring Boot microservice that uses MongoDB as a NoSQL database. 
+- It stores two tables: movies and reviews. The Movies table contains details about the movie and all of its reviews. The Reviews table has a rating (out of 5), a comment, and the related movie's id.
 
 # Dockerization
 The Spring Boot and MongoDB are both dockerized and can be found on DockerHub here: https://hub.docker.com/repository/docker/leoqu/movie-rating-project/general

@@ -1,0 +1,207 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/v1/movies/{id}:
+    put:
+      tags:
+      - movie-controller
+      operationId: updateMovieWithPut
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ObjectId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Movie'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Movie'
+  /api/v1/reviews:
+    post:
+      tags:
+      - review-controller
+      operationId: createReview
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Review'
+  /api/v1/movies:
+    get:
+      tags:
+      - movie-controller
+      operationId: getMovies
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+    post:
+      tags:
+      - movie-controller
+      operationId: createMovie
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Movie'
+        required: true
+      responses:
+        "201":
+          description: Created
+  /api/v1/movies/{movieId}/average:
+    get:
+      tags:
+      - movie-controller
+      operationId: getAverage
+      parameters:
+      - name: movieId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ObjectId'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: number
+                  format: double
+  /api/v1/movies/{imdbId}:
+    get:
+      tags:
+      - movie-controller
+      operationId: getSingleMovie
+      parameters:
+      - name: imdbId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Movie'
+  /api/v1/reviews/{reviewId}/{imdbId}:
+    delete:
+      tags:
+      - review-controller
+      operationId: deleteReview
+      parameters:
+      - name: reviewId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ObjectId'
+      - name: imdbId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /api/v1/movies/{movieId}:
+    delete:
+      tags:
+      - movie-controller
+      operationId: deleteMovie
+      parameters:
+      - name: movieId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/ObjectId'
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    ObjectId:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+    Movie:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/ObjectId'
+        imdbId:
+          type: string
+        title:
+          type: string
+        releaseDate:
+          type: string
+        trailerLink:
+          type: string
+        poster:
+          type: string
+        backdrops:
+          type: array
+          items:
+            type: string
+        genres:
+          type: array
+          items:
+            type: string
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+    Review:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/ObjectId'
+        body:
+          type: string
+        score:
+          maximum: 5
+          minimum: 0
+          type: integer
+          format: int32
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time

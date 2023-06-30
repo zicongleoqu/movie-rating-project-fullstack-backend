@@ -28,7 +28,7 @@ jobs:
         java-version: 17.0.7
         distribution: 'adopt'
 
-    - uses: stCarolas/setup-maven@4.4
+    - uses: stCarolas/setup-maven@4.5
       with:
         maven-verison: 3.9.1
 

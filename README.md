@@ -1,4 +1,4 @@
-# movie-rating-project-fullstack-backend
+# movie-rating-project-fullstack-backend 🎥
 
 This is the backend of the movie rating project. The RESTful API endpoints enable the following actions:
 - Create new movies
@@ -36,4 +36,4 @@ Deployed on an AWS EC2 instance. Accessible at http://ec2-52-15-60-189.us-east-2
 The pipeline does the following:
 - Build the project with Maven
 - Build Docker Image
-- Push Docker Image to the DockerHub Repo here: https://hub.docker.com/repository/docker/leoqu/movie-rating-project/general
+- Push Docker Image to the DockerHub Repo here: https://hub.docker.com/repository/docker/leoqu/movie-rating-project/general (tag: latest_from_pipeline)

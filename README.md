@@ -33,4 +33,7 @@ Deployed on an AWS EC2 instance. Accessible at http://ec2-52-15-60-189.us-east-2
 
 # CI/CD pipeline with GitHub Actions
 
-Added pipeline to build the project with Maven when committing changes and merging.
+The pipeline does the following:
+- Build the project with Maven
+- Build Docker Image
+- Push Docker Image to the DockerHub Repo here: https://hub.docker.com/repository/docker/leoqu/movie-rating-project/general

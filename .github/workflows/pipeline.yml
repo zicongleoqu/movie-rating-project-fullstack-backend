@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Build with Maven
+name: Build with Maven and Build and push Docker Image
 
 on:
   push:
@@ -27,3 +27,13 @@ jobs:
           java-version: 17
       - name: "Build with Maven"
         run: mvn clean install
+
+      - name: Build & Push Docker Image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: leoqu/movie-rating-project
+          tags: latest_from_pipeline
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}

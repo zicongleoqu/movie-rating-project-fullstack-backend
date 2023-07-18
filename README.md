@@ -39,3 +39,5 @@ The pipeline does the following:
 - Build the project with Maven
 - Build Docker Image
 - Push Docker Image to the DockerHub Repo here: https://hub.docker.com/repository/docker/leoqu/movie-rating-project/general (tag: latest_from_pipeline)
+
+Managed username and password using Action Secret

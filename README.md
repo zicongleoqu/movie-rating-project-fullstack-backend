@@ -14,6 +14,7 @@ This is a Spring Boot microservice that uses MongoDB as a NoSQL database.
 - It stores two tables: movies and reviews. The Movies table contains details about the movie and all of its reviews. The Reviews table has a rating (out of 5), a comment, and the related movie's id.
 
 See the OpenAPI Specification of all the endpoints and models here: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/swagger-ui/index.html#/ (Note: Some response bodies are not accurate. Will update in the future)
+![Screenshot 2023-08-06 113000](https://github.com/zicongleoqu/movie-rating-project-fullstack-backend/assets/69138095/45bc404d-0d4e-443e-9d05-6b4947e2be9c)
 
 # Dockerization
 The Spring Boot and MongoDB are both dockerized and can be found on DockerHub here: https://hub.docker.com/repository/docker/leoqu/movie-rating-project/general

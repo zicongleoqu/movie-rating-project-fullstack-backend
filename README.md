@@ -27,7 +27,7 @@ In addition, I used Docker Compose to link up these two images to simplify the p
 
 Deployed on local machine using Kubernetes Minikube.
 
-Update: Stopped the instance because my free tier instance has reached the limit 😢 (Let me know if you want to try it, I can quickly open it :)👍)
+Update: Stopped the instance because my free tier instance has reached the limit
 
 Deployed on AWS ECS using EC2 instance. Accessible at http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/
 - Try this URL to see the list of movies: http://ec2-52-15-60-189.us-east-2.compute.amazonaws.com/api/v1/movies
